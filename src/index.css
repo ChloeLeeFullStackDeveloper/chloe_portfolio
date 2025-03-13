@@ -16,6 +16,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+html {
+  transition: background-color 0.3s ease-in-out;
+}
 
 a {
   font-weight: 500;
@@ -27,6 +30,7 @@ a:hover {
 }
 
 body {
+  @apply font-sans;
   margin: 0;
   display: flex;
   place-items: center;
