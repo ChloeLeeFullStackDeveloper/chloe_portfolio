@@ -726,6 +726,8 @@
     .method-delete { background: #fee2e2; color: #991b1b; }
 
     .api-path { color: var(--ink2); }
+    a.api-endpoint:hover { border-color: var(--ink3); background: var(--bg2); }
+    a.api-endpoint:hover .api-path { color: var(--ink); }
 
     .live-badge {
       display: inline-flex;
@@ -1213,22 +1215,22 @@
           and deployed via Railway CI/CD pipeline.
         </p>
         <div class="api-info">
-          <div class="api-endpoint">
+          <a class="api-endpoint" href="https://fastapi-mcp-todo-production.up.railway.app/docs#/default/get_all_todos" target="_blank" style="text-decoration:none;">
             <span class="api-method method-get">GET</span>
             <span class="api-path">/todos</span>
-          </div>
-          <div class="api-endpoint">
+          </a>
+          <a class="api-endpoint" href="https://fastapi-mcp-todo-production.up.railway.app/docs#/default/create_todo" target="_blank" style="text-decoration:none;">
             <span class="api-method method-post">POST</span>
             <span class="api-path">/todos</span>
-          </div>
-          <div class="api-endpoint">
+          </a>
+          <a class="api-endpoint" href="https://fastapi-mcp-todo-production.up.railway.app/docs#/default/update_todo" target="_blank" style="text-decoration:none;">
             <span class="api-method method-put">PUT</span>
             <span class="api-path">/todos/{id}</span>
-          </div>
-          <div class="api-endpoint">
+          </a>
+          <a class="api-endpoint" href="https://fastapi-mcp-todo-production.up.railway.app/docs#/default/delete_todo" target="_blank" style="text-decoration:none;">
             <span class="api-method method-delete">DEL</span>
             <span class="api-path">/todos/{id}</span>
-          </div>
+          </a>
         </div>
         <div style="margin-top:28px;display:flex;gap:14px;">
           <a href="https://github.com/ChloeLeeFullStackDeveloper/fastapi-mcp-todo" target="_blank" class="btn-primary" style="font-size:12px;padding:11px 22px;">↗ GitHub</a>
@@ -1447,8 +1449,8 @@
         return;
       }
       list.innerHTML = todos.map(t => {
-        const id = t.id ?? t._id ?? t.todo_id;
-        const title = t.title ?? t.text ?? t.name ?? t.todo ?? '';
+        const id = t.todo_id ?? t.id ?? t._id;
+        const title = t.content ?? t.title ?? t.text ?? t.name ?? '';
         const done = t.completed ?? t.done ?? false;
         return `<div class="todo-item${done ? ' done' : ''}" id="td-${id}">
           <input type="checkbox" ${done ? 'checked' : ''} onchange="tdToggle(${id},this.checked)" />
@@ -1467,7 +1469,7 @@
         const r = await fetch(TD_API + '/todos', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ title, completed: false })
+          body: JSON.stringify({ content: title, completed: false })
         });
         if (!r.ok) throw new Error('HTTP ' + r.status);
         inp.value = '';
