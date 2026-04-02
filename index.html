@@ -19,6 +19,9 @@
       --line: #E0E0DC;
       --card: #FFFFFF;
       --accent: #111111;
+      --green: #22c55e;
+      --green-bg: #f0fdf4;
+      --green-border: #bbf7d0;
     }
 
     *,
@@ -674,6 +677,241 @@
       transform: none;
     }
 
+    /* LIVE DEMO SECTION */
+    .live-demo-section {
+      background: var(--bg2);
+    }
+
+    .live-demo-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .live-demo-left {}
+
+    .live-demo-left .api-info {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .api-endpoint {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--card);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+    }
+
+    .api-method {
+      font-weight: 500;
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 2px;
+      min-width: 42px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .method-get { background: #dbeafe; color: #1e40af; }
+    .method-post { background: #dcfce7; color: #166534; }
+    .method-put { background: #fef9c3; color: #854d0e; }
+    .method-delete { background: #fee2e2; color: #991b1b; }
+
+    .api-path { color: var(--ink2); }
+
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border: 1px solid var(--green-border);
+      background: var(--green-bg);
+      border-radius: 2px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: #15803d;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: blink 2s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* TODO WIDGET */
+    .todo-widget {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .todo-widget-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--line);
+      background: var(--bg2);
+    }
+
+    .todo-widget-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--ink3);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .todo-widget-url {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink3);
+    }
+
+    .todo-widget-body {
+      padding: 20px;
+    }
+
+    .todo-add-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .todo-add-row input {
+      flex: 1;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--bg);
+      color: var(--ink);
+      outline: none;
+      transition: border-color .15s;
+    }
+
+    .todo-add-row input:focus {
+      border-color: var(--ink3);
+    }
+
+    .todo-add-row input::placeholder {
+      color: var(--ink3);
+    }
+
+    .todo-add-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 9px 16px;
+      border: 1px solid var(--ink);
+      border-radius: 2px;
+      background: var(--ink);
+      color: var(--bg);
+      cursor: pointer;
+      letter-spacing: .5px;
+      transition: opacity .15s;
+      white-space: nowrap;
+    }
+
+    .todo-add-btn:hover { opacity: .75; }
+
+    .todo-items {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      min-height: 48px;
+    }
+
+    .todo-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 9px 12px;
+      border: 1px solid var(--line);
+      border-radius: 2px;
+      background: var(--bg);
+      transition: border-color .15s;
+    }
+
+    .todo-item:hover { border-color: #ccc; }
+
+    .todo-item input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      cursor: pointer;
+      accent-color: var(--ink);
+      flex-shrink: 0;
+    }
+
+    .todo-item-text {
+      flex: 1;
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 300;
+    }
+
+    .todo-item.done .todo-item-text {
+      text-decoration: line-through;
+      color: var(--ink3);
+    }
+
+    .todo-del {
+      background: none;
+      border: none;
+      font-size: 16px;
+      color: var(--ink3);
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      transition: color .15s;
+    }
+
+    .todo-del:hover { color: #dc2626; }
+
+    .todo-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 20px;
+      border-top: 1px solid var(--line);
+      background: var(--bg2);
+    }
+
+    .todo-status-msg {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink3);
+      min-height: 14px;
+    }
+
+    .todo-status-msg.err { color: #dc2626; }
+
+    .todo-count {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: var(--ink3);
+    }
+
     @media(max-width:900px) {
       nav {
         padding: 18px 24px;
@@ -711,7 +949,12 @@
         grid-template-columns: 1fr;
       }
 
-      footer {
+      .live-demo-inner {
+        grid-template-columns: 1fr;
+        gap: 48px;
+      }
+
+      
         flex-direction: column;
         gap: 8px;
         text-align: center;
@@ -732,6 +975,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#live-demo">Live Demo</a>
       <a href="#skills">Skills</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
@@ -932,10 +1176,89 @@
           <a href="https://github.com/ChloeLeeFullStackDeveloper" target="_blank" class="proj-link">↗</a>
         </div>
       </div>
+      <div class="proj-row visible" data-cat="fs">
+        <div class="proj-num">07</div>
+        <div class="proj-body">
+          <div class="proj-name">FastAPI MCP Todo API</div>
+          <div class="proj-desc">Production-deployed REST API built with FastAPI and Python. Full CRUD endpoints with MCP (Model Context Protocol) integration — deployed live on Railway. Interactive demo embedded below.</div>
+          <div class="proj-tags">
+            <span class="proj-tag">FastAPI</span><span class="proj-tag">Python</span><span class="proj-tag">MCP</span><span class="proj-tag">REST API</span><span class="proj-tag">Railway</span>
+          </div>
+        </div>
+        <div class="proj-right">
+          <div class="proj-cat">Full Stack</div>
+          <a href="https://github.com/ChloeLeeFullStackDeveloper/fastapi-mcp-todo" target="_blank" class="proj-link">↗</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- SKILLS -->
+  <!-- LIVE DEMO -->
+  <section id="live-demo" class="live-demo-section">
+    <div class="section-eyebrow">Live Demo</div>
+    <h2 class="reveal">FastAPI MCP <em>Todo.</em></h2>
+    <div class="live-demo-inner reveal">
+      <div class="live-demo-left">
+        <div class="live-badge">
+          <span class="live-dot"></span>
+          Production API
+        </div>
+        <p style="font-size:15px;color:var(--ink2);font-weight:300;line-height:1.85;margin-bottom:28px;">
+          Real API calls hitting a <strong style="color:var(--ink);font-weight:500;">FastAPI backend deployed on Railway</strong>. 
+          Full CRUD — create, toggle, delete. MCP (Model Context Protocol) server integration for AI tooling.
+        </p>
+        <p style="font-size:15px;color:var(--ink2);font-weight:300;line-height:1.85;margin-bottom:36px;">
+          Built with <strong style="color:var(--ink);font-weight:500;">Python + FastAPI</strong>, automatic Swagger docs generation, 
+          and deployed via Railway CI/CD pipeline.
+        </p>
+        <div class="api-info">
+          <div class="api-endpoint">
+            <span class="api-method method-get">GET</span>
+            <span class="api-path">/todos</span>
+          </div>
+          <div class="api-endpoint">
+            <span class="api-method method-post">POST</span>
+            <span class="api-path">/todos</span>
+          </div>
+          <div class="api-endpoint">
+            <span class="api-method method-put">PUT</span>
+            <span class="api-path">/todos/{id}</span>
+          </div>
+          <div class="api-endpoint">
+            <span class="api-method method-delete">DEL</span>
+            <span class="api-path">/todos/{id}</span>
+          </div>
+        </div>
+        <div style="margin-top:28px;display:flex;gap:14px;">
+          <a href="https://github.com/ChloeLeeFullStackDeveloper/fastapi-mcp-todo" target="_blank" class="btn-primary" style="font-size:12px;padding:11px 22px;">↗ GitHub</a>
+          <a href="https://fastapi-mcp-todo-production.up.railway.app/docs" target="_blank" class="btn-ghost" style="font-size:12px;">Swagger Docs →</a>
+        </div>
+      </div>
+
+      <div class="live-demo-right">
+        <div class="todo-widget">
+          <div class="todo-widget-bar">
+            <span class="todo-widget-title">Todo App</span>
+            <span class="todo-widget-url">railway.app</span>
+          </div>
+          <div class="todo-widget-body">
+            <div class="todo-add-row">
+              <input id="tdInput" type="text" placeholder="Add a new todo..." />
+              <button class="todo-add-btn" onclick="tdAdd()">+ Add</button>
+            </div>
+            <div class="todo-items" id="tdList">
+              <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--ink3);padding:8px 0;">Loading...</div>
+            </div>
+          </div>
+          <div class="todo-footer">
+            <span class="todo-status-msg" id="tdStatus"></span>
+            <span class="todo-count" id="tdCount"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <section id="skills" class="skills-section">
     <div class="section-eyebrow">Skills</div>
     <h2 class="reveal">Technical <em>stack.</em></h2>
@@ -1082,6 +1405,106 @@
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('on'); });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* ── LIVE TODO WIDGET ── */
+    const TD_API = 'https://fastapi-mcp-todo-production.up.railway.app';
+
+    function esc(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+    function tdSetStatus(msg, isErr) {
+      const el = document.getElementById('tdStatus');
+      if (!el) return;
+      el.textContent = msg;
+      el.className = 'todo-status-msg' + (isErr ? ' err' : '');
+    }
+
+    function tdSetCount(n) {
+      const el = document.getElementById('tdCount');
+      if (el) el.textContent = n === null ? '' : n + ' item' + (n !== 1 ? 's' : '');
+    }
+
+    async function tdLoad() {
+      try {
+        const r = await fetch(TD_API + '/todos');
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        const data = await r.json();
+        const todos = Array.isArray(data) ? data : (data.todos || data.items || []);
+        tdRender(todos);
+        tdSetCount(todos.length);
+        tdSetStatus('');
+      } catch (e) {
+        document.getElementById('tdList').innerHTML =
+          '<div style="font-family:\'DM Mono\',monospace;font-size:11px;color:#dc2626;padding:8px 0;">Could not reach API</div>';
+        tdSetStatus('Connection error', true);
+        tdSetCount(null);
+      }
+    }
+
+    function tdRender(todos) {
+      const list = document.getElementById('tdList');
+      if (!todos.length) {
+        list.innerHTML = '<div style="font-family:\'DM Mono\',monospace;font-size:11px;color:var(--ink3);padding:8px 0;">No todos yet.</div>';
+        return;
+      }
+      list.innerHTML = todos.map(t => {
+        const id = t.id ?? t._id ?? t.todo_id;
+        const title = t.title ?? t.text ?? t.name ?? t.todo ?? '';
+        const done = t.completed ?? t.done ?? false;
+        return `<div class="todo-item${done ? ' done' : ''}" id="td-${id}">
+          <input type="checkbox" ${done ? 'checked' : ''} onchange="tdToggle(${id},this.checked)" />
+          <span class="todo-item-text">${esc(title)}</span>
+          <button class="todo-del" onclick="tdDelete(${id})">×</button>
+        </div>`;
+      }).join('');
+    }
+
+    async function tdAdd() {
+      const inp = document.getElementById('tdInput');
+      const title = inp ? inp.value.trim() : '';
+      if (!title) return;
+      tdSetStatus('Adding...');
+      try {
+        const r = await fetch(TD_API + '/todos', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, completed: false })
+        });
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        inp.value = '';
+        await tdLoad();
+        tdSetStatus('Added!');
+        setTimeout(() => tdSetStatus(''), 2000);
+      } catch (e) { tdSetStatus('Add failed', true); }
+    }
+
+    async function tdToggle(id, completed) {
+      try {
+        await fetch(`${TD_API}/todos/${id}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ completed })
+        });
+        await tdLoad();
+      } catch (e) { tdSetStatus('Update failed', true); }
+    }
+
+    async function tdDelete(id) {
+      try {
+        await fetch(`${TD_API}/todos/${id}`, { method: 'DELETE' });
+        await tdLoad();
+      } catch (e) { tdSetStatus('Delete failed', true); }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const inp = document.getElementById('tdInput');
+      if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') tdAdd(); });
+      tdLoad();
+    });
+    if (document.readyState !== 'loading') {
+      const inp = document.getElementById('tdInput');
+      if (inp) inp.addEventListener('keydown', e => { if (e.key === 'Enter') tdAdd(); });
+      tdLoad();
+    }
   </script>
 </body>
 
